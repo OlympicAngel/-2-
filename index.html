@@ -1,0 +1,315 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            font-size: 1em;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            direction: rtl;
+            text-align: center;
+            background-color: rgb(62, 0, 0);
+            color: #fff;
+        }
+
+        button {
+            margin: 0.5em;
+        }
+
+        div {
+            width: fit-content;
+            background-color: rgba(255, 255, 255, 0.1);
+            margin: auto;
+            padding: 1em;
+            border-radius: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="task1()">תרגיל 1</button>
+    <script>
+        function task1() {
+            let input = prompt("insert a number, i'll tell u if its even / odd..")
+            input = Number(input);
+            alert(`your number (${input}) is ${input % 2 == 0 ? "even" : "odd"}`)
+        }
+    </script>
+
+    <button onclick="task2()">תרגיל 2</button>
+    <script>
+        function task2() {
+            let input = prompt("insert numbers as much as you want (separate them with comma[s]), i'll average them up for you..")
+            const numbers = input.replace(/ , /g, ",").replace(/ ,/g, ",").replace(/, /g, ",").split(",");
+            let sum = 0;
+            for (let number of numbers) {
+                sum += Number(number);
+            }
+            alert(`The average of (${numbers.join(", ")}) is ${Math.floor(sum / numbers.length * 100) / 100}.`)
+        }
+    </script>
+
+    <button onclick="task3()">תרגיל 3</button>
+    <script>
+        function task3() {
+            let input = prompt("Throw Ball Game\n\nInsert *first* player's name & score - formatted like: 'Almog, 69'");
+            let p1, p2;
+            p1 = extractPlayerData(input);
+            input = prompt("Throw Ball Game\n\nInsert *second* player's name & score - formatted like: 'Noam, 42'");
+            p2 = extractPlayerData(input);
+
+            let winner = (p1.score < p2.score) ? p2 : p1;
+
+            alert(`Congrats ${winner.name} - you won! (${winner.score})`)
+        }
+
+        function extractPlayerData(p) {
+            const raw = p.replace(/ , /g, ",").replace(/, /g, ",").replace(/ ,/g, ",").split(",");
+            return { name: raw[0], score: raw[1] }
+        }
+    </script>
+
+
+    <button onclick="task4()">תרגיל 4</button>
+    <script>
+        function task4() {
+            let input = prompt("insert an hour of the day..")
+            if (input >= 5 && input <= 11)
+                return alert("gotten morgan!");
+            if (input >= 12 && input <= 17)
+                return alert("good afternoons!")
+            if (input => 18 && input <= 23)
+                return alert("good evening!")
+        }
+    </script>
+
+
+    <button onclick="task5()">תרגיל 5</button>
+    <script>
+        function task5() {
+            let cells = prompt("How many train cells?"),
+                hour = prompt("Select hour:\n 0 - morning\n 1 - afternoon\n 2 - evening"),
+                salary = prompt("Whats the driver salary?");
+
+            const pplCount = cells * 120 * [1, 0.9, 0.7][Number(hour)];
+            alert(`${pplCount} * 6.6 - ${salary} - 17% = ${(pplCount * 6.6 - salary) * (1 - 0.17)}`)
+
+        }
+    </script>
+
+
+    <button onclick="task6()">תרגיל 6</button>
+    <script>
+        function task6() {
+            let price = Number(prompt("Whats the price of the car?"))
+            cuts = Math.min(Number(prompt("How many splits?")), 24)
+            alert(`Full price: ${price}\n5% off: ${price * (1 - 0.05)}\nPrice per month(/${cuts}): ${price * (1 - 0.05) / cuts}`)
+        }
+    </script>
+
+
+    <button onclick="task7()">תרגיל 7</button>
+    <script>
+        function task7() {
+            let pplCount = prompt("how many ppl in the station?")
+            if (pplCount < 12)
+                return alert("Cant go! at least 12 ppl required.")
+            let leftOvers = 0;
+            if (pplCount > 12)
+                leftOvers = pplCount - 12
+            alert(`Here we gooooo! we are ${pplCount - leftOvers} ppl. & ${leftOvers} left waiting in the station.`)
+        }
+    </script>
+
+
+    <button onclick="task8()">תרגיל 8</button>
+    <script>
+        function task8() {
+            let kids = Number(prompt("How may kids?"))
+            alert(`we need ${~~(kids / 30)} guards & medic, we also need ${~~(kids / 50)} med-kits`)
+        }
+    </script>
+
+
+    <button onclick="task9()">תרגיל 9</button>
+    <script>
+        function task9() {
+            let input = prompt("tell me its thursday some how")
+            if (["Thursday", "thursday", "5"].indexOf(input) != -1)
+                alert(`Thursday! Yay!`)
+            else
+                alert("..u had 1 job!")
+        }
+    </script>
+
+    <button onclick="task10()">תרגיל 10</button>
+    <script>
+        function task10() {
+            let bmi = Number(prompt("insert BMI value:"));
+            if (bmi <= 18)
+                return alert("bmi too low.. gain some weight u skelly.")
+            if (bmi >= 25)
+                return alert("bmi too high.. loss some weight u fat.")
+            alert("nice bmi u got there my man.")
+        }
+    </script>
+
+    <button onclick="task11()">תרגיל 11</button>
+    <script>
+        function task11() {
+            //instruction unclear - no mention in where "foo" gets defined & it unclear what to check and what to respond..
+        }
+    </script>
+
+    <button onclick="task12()">תרגיל 12</button>
+    <script>
+        function task12() {
+            alert(100 ** 0.5)
+        }
+    </script>
+
+
+    <button onclick="task13()">תרגיל 13</button>
+    <button id="showup" style="display: none;">שלום לך</button>
+    <script>
+        function task13() {
+            document.querySelector("#showup").style.display = "block"
+        }
+    </script>
+
+
+    <button onclick="task14()">תרגיל 14</button>
+    <script>
+        function task14() {
+            window.open("https://www.w3schools.com");
+        }
+    </script>
+
+
+    <button onclick="task15()">תרגיל 15</button>
+    <script>
+        function task15() {
+            alert(new Date())
+        }
+    </script>
+
+    <button onclick="task16()">תרגיל 16</button>
+    <script>
+        function task16() {
+            let times = Number(prompt("How may times?"))
+            alert(new Array(times).fill("hello"))
+        }
+    </script>
+
+
+    <button onclick="task17()">תרגיל 17</button>
+    <script>
+        function task17() {
+            let text = prompt("say a word..")
+            let str = ""
+            for (let index = 0; index < 10; index++) {
+                str += text + " ";
+            }
+            alert(str)
+        }
+    </script>
+
+
+    <button onclick="task18()">תרגיל 18</button>
+    <script>
+        function task18() {
+            let num1 = Number(prompt("whats the first number")),
+                num2 = Number(prompt("whats the first number"))
+            alert(Math.max(num1, num2))
+        }
+    </script>
+
+    <br><br>
+
+    <div>
+        <input type="number" id="originPrice" onchange="task19()" placeholder="סכום עסקה"><br>
+        <input type="range" id="tipSlider"
+            oninput="document.getElementById('tip').innerText = ~~(this.value * 100) +'%'; task19()" value=0.1
+            min="0.05" max="0.5" step="0.01"><span id="tip">10%</span><br>
+        <span id="price">--</span>
+        <script>
+            function task19() {
+                let basePrice = document.getElementById("originPrice").value;
+                let tipValue = document.getElementById('tipSlider').value
+                document.getElementById("price").innerText =
+                    basePrice + " + " + tipValue * 100 + "% = " + basePrice * (1 + Number(tipValue))
+
+            }
+        </script>
+    </div>
+
+    <br>
+
+    <div>
+        <span id="clickNumber">0</span>
+        <button onclick="clickGame(1)">+</button>
+        <button onclick="clickGame(-1)">-</button>
+        <button onclick="clickGame(0)">0</button>
+        <script>
+            function clickGame(action) {
+                let el = document.getElementById("clickNumber");
+                let value = Number(el.innerText);
+                switch (action) {
+                    case 1:
+                        el.innerText = value + 1;
+                        break;
+                    case -1:
+                        el.innerText = value - 1;
+                        break;
+                    case 0:
+                        el.innerText = 0;
+                        break;
+                }
+            }
+        </script>
+    </div>
+
+    <br>
+
+    <button onclick="task21()">תרגיל 21</button>
+    <script>
+        function task21() {
+            let sents = ["אין חכם כבעל מכה. - אני",
+                "אם אין אני לי מי זאת אמילי? - אני",
+                "ביום השמיני תשנוץ! - גם אני",
+                "עוד משפט כי אני לא צירתי - אני",
+                "כעכעגכעכעכגע"]
+            alert(sents[~~(Math.random() * sents.length)])
+        }
+    </script>
+
+
+    <button onclick="task22()">תרגיל 22</button>
+    <script>
+        function task22() {
+            alert(["דני", "שלום", "אלון", "רותם", "שימרית"])
+        }
+    </script>
+
+    <br><br>
+
+    <div>
+        <input id="bookName" placeholder="שם של ספר"><button onclick="task23();">הוספת ספר!</button><br>
+        <button onclick="alert(books)">רשימת ספרים</button>
+        <script>
+            const books = [];
+            function task23(el) {
+                books.push(document.querySelector("#bookName").value)
+                alert("ספר נוסף")
+            }
+        </script>
+    </div>
+</body>
+
+</html>
